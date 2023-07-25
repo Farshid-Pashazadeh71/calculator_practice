@@ -1,0 +1,88 @@
+@import "./partials/variables";
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+input{
+  border: none;
+  outline: none;
+  &.btn{
+    width: 64px;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    color: $white;
+    font-size: $font-size-xl;
+    cursor: pointer;
+    box-shadow: 0 0 4px 0 #222;
+    &--numbers{
+      background-color: $numbers;
+      &:active{
+        background-color: $numbers-clicked--success;
+      }
+    }
+    &--operators{
+      background-color: $operators;
+      font-size: $font-size-xxl;
+      &:active{
+        background-color: $operators-clicked--success;
+      }
+    }
+    &--equal,
+    &--clear{
+      background-color: $clear-and-equal;
+      &:active{
+        background-color: $clear-and-equal-clicked--success;
+      }
+    }
+  }
+}
+.d-f{
+  display: flex;
+}
+.center{
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.d-grid{
+  display: grid;
+}
+.grid-template{
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(5,auto);
+  gap: $gap-sm;
+}
+
+.calculator{
+  padding: 16px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  &--font-style{
+    font-size: 32px;
+    font-weight: bolder;
+  }
+  &--bg-dark{
+    background-color: #000;
+  }
+  &_result{
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    &.box{
+      padding: 16px;
+      border-bottom: 4px solid $white;
+      margin-bottom: calc(16px - #{$gap-sm});
+      width: calc((4 * 64px) + (3 * #{$gap-sm}));
+    }
+    &.box--result{
+      background-color: transparent;
+      color: $white;
+      font-size: $font-size-xxl;
+    }
+  }
+}
