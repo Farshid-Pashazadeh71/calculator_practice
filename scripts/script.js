@@ -37,7 +37,12 @@ for (let operator of operators) {
 equal_ele.addEventListener("click", () => {
     status.numberTwo = status.currentResult;
     status.currentResult = "";
+    if(status.numberOne === "" || status.numberTwo === ""){
+        return;
+    }
     calc(status.numberOne, status.numberTwo);
+    status.numberOne = "";
+    status.numberTwo = "";
 });
 
 function calc(num1, num2) {
@@ -52,8 +57,8 @@ function calc(num1, num2) {
     } else {
         status.currentResult = num1 / num2;
     }
+    status.currentResult = status.currentResult.toString();
     showResult(status.currentResult);
-    status.currentResult = "";
 }
 
 function showResult(x) {
